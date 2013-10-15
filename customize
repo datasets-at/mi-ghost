@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+PATH=/opt/local/gnu/bin:/opt/local/bin:/opt/local/sbin:/usr/bin:/usr/sbin
+
+# Exit if any commands fail
+set -o errexit
+
+# Configuring image specific packages
+echo "* Configuring image specific packages.";
+/usr/bin/tar -xzpf /root/ghost.tar.gz -C /
+cd /opt/ghost && npm install
+
+svccfg import /root/ghost.xml
+
+# Clean up
+echo "* Cleaning up."
+pkgin clean
+rm -rf /root/*
+
+# Prepare image for provisioning
+sm-prepare-image -y

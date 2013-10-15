@@ -1,0 +1,7 @@
+name="ghost-blogging-platform"
+organization="SmartOS"
+brand="SmartMachine"
+version="0.3.2"
+description="Just a blogging platform."
+homepage="http://ghost.org/"
+users="root admin"
