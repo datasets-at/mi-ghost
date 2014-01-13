@@ -7,7 +7,7 @@ set -o errexit
 
 # Configuring image specific packages
 echo "* Configuring image specific packages.";
-/usr/bin/tar -xzpf /root/ghost.tar.gz -C /
+/usr/bin/tar -xjpf /root/ghost.tar.bz2 -C /
 cd /opt/ghost && npm install
 
 svccfg import /root/ghost.xml
