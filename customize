@@ -7,8 +7,16 @@ set -o errexit
 
 # Configuring image specific packages
 echo "* Configuring image specific packages.";
-/usr/bin/tar -xjpf /root/ghost.tar.bz2 -C /
-cd /opt/ghost && npm install
+groupadd ghost
+useradd -g ghost -d /home/ghost -m -c "Ghost blogging platform" ghost
+install -o ghost -g ghost -d /opt/ghost
+
+pkg_add -u nodejs
+
+curl -L https://ghost.org/zip/ghost-latest.zip -o /tmp/ghost.zip
+sudo -u ghost unzip -uo /tmp/ghost.zip -d /opt/ghost
+(cd /opt/ghost && sudo -u ghost npm install --production)
+cp -a /opt/ghost/config.example.js /opt/ghost/config.js
 
 svccfg import /root/ghost.xml
 

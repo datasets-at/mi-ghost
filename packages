@@ -1,2 +1,4 @@
 nginx
-nodejs
+unzip
+gcc48
+gmake

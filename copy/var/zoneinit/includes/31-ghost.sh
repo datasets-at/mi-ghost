@@ -2,7 +2,7 @@
 log "setting real hostname"
 
 gsed -i \
-        -e "s/%HOSTNAME%/${HOSTNAME}/" \
+        -e "s/my-ghost-blog.com/${HOSTNAME}/" \
         /opt/ghost/config.js
 
 log "starting ghost blogging platform"

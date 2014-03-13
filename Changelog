@@ -1,3 +1,8 @@
+0.4.1:
+- update to ghost 0.4.1
+- add gcc48 and gmake
+- run ghost as user "ghost"
+
 0.4.0: update to ghost 0.4.0
 
 0.3.2: first build
